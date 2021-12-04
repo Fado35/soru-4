@@ -1,0 +1,11 @@
+-
+  name: Adding new line in /etc/hosts lineinfile
+    hosts: all
+    become: yes
+    tasks:
+      -
+        name: Update entry into /etc/hosts
+        lineinfile:
+          path: /etc/hosts
+          line: '192.168.1.210 tydba.case.com'
+        when: '192.168.1.210 tydba.case.com' is not defined
